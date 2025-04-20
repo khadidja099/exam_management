@@ -1,0 +1,41 @@
+<odoo>
+    <record id="view_exam_form" model="ir.ui.view">
+        <field name="name">exam.exam.form</field>
+        <field name="model">exam.exam</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="student_id"/>
+                    <field name="subject_id"/>
+                    <field name="room_id"/>
+                    <field name="supervisor_id"/>
+                    <field name="semester_id"/>
+                    <field name="year_id"/>
+                    <field name="type_id"/>
+                    <field name="date"/>
+                    <field name="time"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_exam_tree" model="ir.ui.view">
+        <field name="name">exam.exam.tree</field>
+        <field name="model">exam.exam</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="student_id"/>
+                <field name="subject_id"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="exam_menu_root" name="Exam Management"/>
+    <menuitem id="exam_menu_exams" name="Exams" parent="exam_menu_root"/>
+    <act_window id="exam_action"
+        name="Exams"
+        res_model="exam.exam"
+        view_mode="tree,form"
+        menu_id="exam_menu_exams"/>
+</odoo>
